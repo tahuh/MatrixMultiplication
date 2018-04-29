@@ -38,4 +38,11 @@ class Matrix:
 					bkj = other.access(k,j)
 					s += aik * bkj
 				M.setting(i,j,s)
+	def __rmul__(self, c):
+		for i in range(self.cols * self.rows):
+			self.elem[i] = c * self.elem[i]
+		M = Matrix(self.rows, self.cols)
+		M.elem = self.elem
+		return M
+
 		return M
