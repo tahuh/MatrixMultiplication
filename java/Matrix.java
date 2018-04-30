@@ -14,22 +14,22 @@
 		COLS = cols;
 		element = new double[rows * cols];
 	}
-	double GetElemAt(int r, int c){
+	public double GetElemAt(int r, int c){
 		return element[r * COLS + c];
 	}
-	double SetElemAt(int r, int c, double v){
+	public double SetElemAt(int r, int c, double v){
 		element[r * COLS + c] = v;
 	}
-	int GetNumRows(){
+	public int GetNumRows(){
 		return ROWS;
 	}
-	int GetNumCols(){
+	public int GetNumCols(){
 		return COLS;
 	}
-	double[] GetMatrix(){
+	public double[] GetMatrix(){
 		return element;
 	}
-	Matrix multiply(Matrix other){
+	public Matrix multiply(Matrix other){
 		int otherCols = other.GetNumCols();
 		int otherRows = other.GetNumRows();
 		Matrix M = new Matrix(ROWS, otherCols);
@@ -46,7 +46,7 @@
 		}
 		return M;
 	}
-	Matrix Transpose(){
+	public Matrix Transpose(){
 		// transpose itself
 		Matrix M = new Matrix(COLS, ROWS);
 		for(int i = 0; i < ROWS; i++){
@@ -57,7 +57,7 @@
 		}
 		return M;
 	}
-	double Trace(){
+	public double Trace(){
 		int lim = ROWS < COLS ? ROWs : COLS;
 		double thing = 0.0;
 		for(int i = 0; i < lim; i++){
